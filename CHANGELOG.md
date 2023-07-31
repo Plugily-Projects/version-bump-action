@@ -6,6 +6,10 @@
 - For the maven bump, added configuration to update subModules as well.
 - For the maven bump, change to git add all the pom.xml files from the project.
 
+## v8 - 12/28/2022
+
+- Simplified getting of maven and gradle files, no need to define anymore
+
 ## v7 - 12/28/2022
 
 - Deprecating save-state and set-output commands
