@@ -1,5 +1,11 @@
 # Changelog
 
+## v9 - 07/13/2023
+
+- New parameter (`auto-version-bump-mode`) to set a mode different then `auto` for auto-bump, so on auto bump we can select which mode we want(major, minor, patch) without add it into the PR Comment
+- For the maven bump, added configuration to update subModules as well.
+- For the maven bump, change to git add all the pom.xml files from the project.
+
 ## v7 - 12/28/2022
 
 - Deprecating save-state and set-output commands

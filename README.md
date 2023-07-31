@@ -60,6 +60,7 @@ jobs:
 * `auto-version-bump-suffix`: Version suffix for auto bump
 * `auto-version-bump-higher`: Should after the suffix a number bumped?
 * `auto-version-bump-release`: Should on a automatic bump a tag and release created?
+* `auto-version-bump-mode`: Mode for auto version, could be major, minor, patch or auto. Default is auto.
 
 ## Outputs
 

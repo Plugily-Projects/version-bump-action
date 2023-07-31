@@ -67,12 +67,12 @@ elif git log -1 | grep -q "#minor"; then
 elif git log -1 | grep -q "#patch"; then
     BUMP_MODE="patch"
 elif [[ "${AUTO}" == "true" ]]; then
-    BUMP_MODE="auto"
+    BUMP_MODE="${AUTO_MODE}"
 fi
 
 if [ -f ./pom.xml ]; then
     REPO_SYSTEM=MAVEN
-    BUILD_FILE=./pom.xml
+    BUILD_FILE=`find . -name 'pom.xml'`
 else
     REPO_SYSTEM=GRADLE
     if [ -f gradle.properties ] && grep -E -q "version=${CURRENT_VERSION}" gradle.properties; then
@@ -93,7 +93,7 @@ else
     echo "version will be bumped from" $OLD_VERSION "to" $NEW_VERSION
     REPO="https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git"
     if [ "${REPO_SYSTEM}" = "MAVEN" ]; then
-        mvn -q versions:set -DnewVersion="${NEW_VERSION}"
+        mvn -q versions:set -DnewVersion="${NEW_VERSION}" -DprocessAllModules=true
     elif [ "${REPO_SYSTEM}" = "GRADLE" ]; then
         sed -i "s/\(version *= *['\"]*\)${OLD_VERSION}\(['\"]*\)/\1${NEW_VERSION}\2/" ${BUILD_FILE}
     fi

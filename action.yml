@@ -48,6 +48,10 @@ inputs:
     description: 'Should on a automatic bump a tag and release created?'
     required: true
     default: false
+  auto-version-bump-mode:
+    description: 'Mode for auto version, could be major, minor, patch or auto. Default is auto.'
+    required: true
+    default: auto
 
 outputs:
   version:
@@ -81,6 +85,7 @@ runs:
         AUTO_SUFFIX: ${{ inputs.auto-version-bump-suffix }}
         AUTO_HIGHER: ${{ inputs.auto-version-bump-higher }}
         AUTO_RELEASE: ${{ inputs.auto-version-bump-release }}
+        AUTO_MODE: ${{ inputs.auto-version-bump-mode }}
       run: ${{github.action_path}}/src/version-bump.sh
       shell: bash
 
