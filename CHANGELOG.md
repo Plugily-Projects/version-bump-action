@@ -1,5 +1,8 @@
 # Changelog
 
+## v10 - 03/12/2025
+- Updating all changed files during process, so also child pom.xml will update
+
 ## v9 - 07/13/2023
 
 - New parameter (`auto-version-bump-mode`) to set a mode different then `auto` for auto-bump, so on auto bump we can select which mode we want(major, minor, patch) without add it into the PR Comment
